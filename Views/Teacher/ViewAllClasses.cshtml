@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "ViewAllTeachers";
+}
+
+@using MvcApplication3.Models
+
+<div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-8">
+        <h1>Detail of All @ViewBag.name 's Classes</h1>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-20">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Details</h3>
+                </div>
+                <div class="panel-body">
+                    <div>
+                       @Html.ActionLink("Add new Class", "CreateClass")
+                        <table class="table table-striped" style="font-size:30px;font-family:'Comic Sans MS'">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Univeristy Name</th>
+                                    <th>Class NAme</th>
+                                    <th>EstClassEnrolment</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            
+                                  @foreach (Class i in Model)
+                            {
+                                <tr><td>@i.Id</td><td>@i.UniveristyName</td><td>@i.ClassName</td><td>@i.EstClassEnrolment</td><td>@Html.ActionLink("Edit", "EditClass", new { id = i.Id }, new { @class = "btn btn-success" })</td><td>@Html.ActionLink("Delete", "DeleteClass", new { id = i.Id }, new { @class = "btn btn-success" })</td></tr>
+                            }
+                              
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br/>

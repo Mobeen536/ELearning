@@ -1,0 +1,52 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "UpdateStudent";
+}
+@using MvcApplication3.Models
+
+<div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-8">
+        <h1>Detail of All Teachers</h1>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-20">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Details</h3>
+                </div>
+                <div class="panel-body">
+                    <div>
+                        @Html.ActionLink("Add new Teacher", "AddTeacher")
+                        <table class="table table-striped" style="font-size:30px;font-family:'Comic Sans MS'">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Password</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            @foreach (User i in Model)
+                            {
+                                <tr>
+                                    <td>@i.Id</td>
+                                    <td>@i.Name</td>
+                                    <td>@i.Email</td>
+                                    <td>@i.Password</td>
+                                    <td>@Html.ActionLink("Edit", "EditTeacher", new { id = i.Id }, new { @class = "btn btn-success" })</td>
+                                    <td>@Html.ActionLink("Delete", "DeleteFromTeachers", new { id = i.Id }, new { @class = "btn btn-success" })</td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

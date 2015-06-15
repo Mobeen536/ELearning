@@ -1,0 +1,122 @@
+﻿@{
+    ViewBag.Title = "SingUp";
+}
+
+@Scripts.Render("~/bundles/jquery")
+
+<html>
+<head>
+    <script>
+
+
+        function emailValidate() {
+            var email = document.getElementById("Email").value;
+            if ((email.indexOf('@@') < 0) || (email.indexOf('.') < 0) || (email.lastIndexOf('.') - email.lastIndexOf('@@') < 2)) {
+                alert("Your entered Wrong email format");
+                return false;
+            }
+            return true;
+        }
+
+        </script>
+</head>
+<body>
+        @*<div class="row">
+                <div class="col-md-offset-3 col-md-3">
+                    <h2 style="margin-top:70px;">Sign Up</h2>
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input  type="text" class="form-control" id="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email address:</label>
+                            <input type="email" class="form-control" id="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="pwd">Password:</label>
+                            <input  type="password" class="form-control" id="pwd">
+                        </div>
+                        <div class="checkbox">
+                            <label>  <input type="radio" name="member" value="Student"> Student  <br /></label>
+                            <label>  <input type="radio" name="member" value="Teacher"> Teacher</label>
+
+    </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                </div>
+            </div>
+        <br /><br /><br /><br />*@
+
+   
+    <br />
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="login-panel panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Please Sign Up</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form action="/Home/DSignUP">
+                                <fieldset>
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="Name" name="Name" type="text" autofocus>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="E-mail" id="UserName" name="Email" type="text">
+                                    </div>
+                                    <div id="result"></div>
+                                    <script>
+
+                                        $(document).ready(function () {
+
+                                            $('#checking').hide();
+
+                                            $('#UserName').change(function () {
+
+                                                var userName = $('#UserName').val();
+
+                                                //alert('User Name ='+ userName);
+                                                $('#checking').show();
+                                                $.getJSON("/home/CheckUserName?UserName=" + userName, function (data) {
+                                                    $('#checking').hide();
+                                                    if (data) {
+                                                        $('#result').text("User already exists in database");
+
+                                                    }
+                                                    else {
+                                                        $('#result').text("User Name is available");
+                                                    }
+                                                });
+
+                                            });
+
+                                        });
+                                    </script>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder=" Re-Enter E-mail" name="email" type="email">
+
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Password" name="Password" type="password" value="">
+                        </div>
+                        <div class="checkbox">
+                            <label>  <input type="radio" name="member" value="Student"> Student  <br /></label>
+                            <label>  <input type="radio" name="member" value="Teacher"> Teacher</label>
+                        </div>
+                        <!-- Change this to a button or input when using this as a form -->
+                        <button type="submit" class="btn btn-lg btn-success btn-block" onclick="return emailValidate()">Sign Up</button>
+                        </fieldset>
+                        </form>
+                    </div>
+
+                    </div>
+                </div>  
+            </div>
+        </div>
+
+    <br /><br /><br /><br /><br /><br /><br />
+    </body>
+</html>

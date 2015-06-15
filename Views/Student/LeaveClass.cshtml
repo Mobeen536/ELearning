@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "LeaveClass";
+}
+@using MvcApplication3.Models
+<div class="row">
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-4">
+        <h1>Leave Class</h1>
+    </div>
+</div>
+<br /><br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Please Fill Required Fields</h3>
+                </div>
+                <div class="panel-body">
+                    <form id="Leave" role="form" action="/Student/Leaving">
+                        <fieldset>
+                            <select class="form-control" name="type" form="Leave">
+                                @foreach (Class s in Model)
+                                {
+
+                                    <option>@s.ClassName</option>
+
+                                }
+                            </select>
+
+                            
+                            <!-- Change this to a button or input when using this as a form -->
+                            <button type="submit" class="btn btn-lg btn-success btn-block">Leave</button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+

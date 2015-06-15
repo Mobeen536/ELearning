@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "ShowMarks";
+}
+
+@using MvcApplication3.Models
+
+<div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-8">
+        <h1>Detail Marks of<b> @Session["user"]</b></h1>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-20">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Details</h3>
+                </div>
+                <div class="panel-body">
+                    <div>
+                        <table class="table table-striped" style="font-size:30px;font-family:'Comic Sans MS'">
+                            <thead>
+                                <tr>
+                                    <th>Quiz Name</th>
+                                    <th>Marks</th>
+                                </tr>
+                            </thead>
+                            @foreach (Mark i in Model)
+                            {
+                                <tr>
+                                    <td>@i.QName</td>
+                                    <td>@i.marks</td>
+                                        
+                               </tr>
+                            }
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

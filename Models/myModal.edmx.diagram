@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a61280eb71cf4bffb0f175949c603719" Name="Diagram1" ZoomLevel="78">
+        <EntityTypeShape EntityType="ElearningDataBaseModel.Announcement" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningDataBaseModel.Class" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningDataBaseModel.Comment" Width="1.5" PointX="7.5" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningDataBaseModel.Mark" Width="1.5" PointX="8.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningDataBaseModel.Quiz" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningDataBaseModel.StudentAnnouncement" Width="1.5" PointX="10.5" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningDataBaseModel.StudentClass" Width="1.5" PointX="8.25" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="ElearningDataBaseModel.User" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <AssociationConnector Association="ElearningDataBaseModel.FK_Announcement_ToClass" ManuallyRouted="false" />
+        <AssociationConnector Association="ElearningDataBaseModel.FK_Announcement_ToTeacher" ManuallyRouted="false" />
+        <AssociationConnector Association="ElearningDataBaseModel.FK_Comment_To_Announcement" ManuallyRouted="false" />
+        <AssociationConnector Association="ElearningDataBaseModel.FK_StudentAnnouncement_ToAnnouncement" ManuallyRouted="false" />
+        <AssociationConnector Association="ElearningDataBaseModel.FK_Class_ToUser" ManuallyRouted="false" />
+        <AssociationConnector Association="ElearningDataBaseModel.FK_Marks_ToClass" ManuallyRouted="false" />
+        <AssociationConnector Association="ElearningDataBaseModel.FK_Table_ToClass" ManuallyRouted="false" />
+        <AssociationConnector Association="ElearningDataBaseModel.FK_Marks_ToUser" ManuallyRouted="false" />
+        <AssociationConnector Association="ElearningDataBaseModel.FK_Quiz_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="ElearningDataBaseModel.FK_StudentAnnouncement_ToStudent" ManuallyRouted="false" />
+        <AssociationConnector Association="ElearningDataBaseModel.FK_StudentClass_ToStudent" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

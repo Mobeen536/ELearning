@@ -1,0 +1,115 @@
+﻿@{
+    if(Session["layoutNUll"] == "yes")
+    {
+        Layout = null;
+    }
+    ViewBag.Title = "ViewAnnouncement";
+}
+
+@using MvcApplication3.Models;
+
+
+<div class="row">
+    <div class="col-sm-3">
+        <div style="position:fixed; top:30%;left:2%">
+            <input style="width:220px; margin-top:5px" id="search-User" type="text" class="form-control navbar-left" placeholder="Search Post or Class">
+            <button style="margin-top:5px" id="name" class="btn btn-default navbar-left">Submit</button>
+            <script>
+                $(function () {
+                    Layout = null;
+                    $('#name').click(function () {
+                        
+                        $('#hidediv').hide();
+                        $('#an').hide();
+                        var areavalue = $('#search-User').val();
+                        areavalue = areavalue.replace(/ /g, '%20');
+                        $("#Show").load('/Teacher/SearchPost/?Name=' + areavalue);
+
+                    });
+                });
+
+            </script>
+
+        </div>
+    </div>
+    <div class="col-sm-8" id="an">
+        <h1>Announcements</h1>
+    </div>
+</div>
+<div id="Show">
+    
+    </div>
+<div class="container" id="hidediv">
+    @{
+        int check = 0;
+    }
+    @foreach (Announcement i in Model)
+    {
+        <div class="row">
+            <div class=" col-md-3">
+                </div>
+            <div class="col-md-6">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <a class="close" href="@("../Teacher/DeletePost?id=" + @i.Id)"><span aria-hidden="true">&times;</span></a>
+                        <h2 class="panel-title"><strong>@i.ClassName</strong></h2>
+                    </div>
+                    <div class="panel-body">
+                        <div>
+
+                                    <h2><strong>@i.Name</strong></h2>
+
+                                            <h5>&nbsp;@i.Date</h5>
+
+
+                                        <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>@i.Topic</u></h4>
+                                        <p>@i.Announce</p>
+                                        <br/><br/><br/>
+                            @if(i.Type.Equals("Announcement"))
+                            {
+                                String sorce="../images/TeacherImages/"+i.Id+".jpg";
+                                  <a class="fancybox" rel="group" href="@sorce"><img src="@sorce" style="width:500px;height:380px" /></a>
+                            }
+                          <br/><br/>
+                            <form action="AnnouncementtoComment" method="post">
+                                <input name="AId" value="@i.Id" hidden />
+                                <input name="CId" value="@i.CId" hidden />
+                                <input name="Date" value="@DateTime.Now.ToString()" hidden />
+
+                                <div class="form-group">
+                                    <textarea name="Coment" rows="3" cols="71" placeholder="Leave a Comment"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-sm btn-success">Comment</button>
+                            </form>
+                                        @{
+                                             var list = i.Comments.OrderByDescending(x => x.Id);
+                                        }
+
+                                        @foreach(Comment c in list)
+                                         {
+                                             <a class="close" href="@("../Teacher/DeleteComment?id=" + @c.Id)"><span aria-hidden="true">&times;</span></a>
+                                          <h3 style="color:#000000">&nbsp;&nbsp;@c.Name <sub style="font-size:11px; color:rgb(66, 84, 171)"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@c.Date</sub> </h3>
+                                           <p>&nbsp; &nbsp;&nbsp;&nbsp;@c.Coment</p>
+                                              
+                                            }
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            <div class="col-md-3">
+                <marquee behavior="scroll" direction="up" width="250" height="200" style="position:fixed; border:dotted" onmouseover="this.stop();" onmouseout="this.start();">
+                    @{
+                            if(check==0)
+                            { 
+                              <br/><br/> 
+                            <a class="close" style="color:#000000; font-style:oblique"  href="@("../Teacher/LatestPost?id=" + @i.Id)"> You posted  @i.Topic on @i.Date </a>
+                            check++;
+                            }
+                                                   }
+                </marquee>
+                </div>
+                    </div>
+            }
+        </div>
+        <br />

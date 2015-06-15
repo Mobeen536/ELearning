@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "AddQuiz";
+}
+<div class="row">
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-4">
+        <h1>Create Quiz</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-4">
+        <h2>Quiz Name:@Session["QName"]</h2> 
+    </div>
+    <div class="col-sm-2">
+    </div>
+
+    <div class="col-sm-4">
+        <h2>Total Questions:@Session["Qo"]</h2> 
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="login-panel panel panel-default">
+                <div class="panel-body">
+                    <form role="form" action="/Teacher/Quiz">
+                        <fieldset>
+    
+                                <h1>Question No: @Session["No"]</h1>
+                               <div class="form-group" >
+                                   <input class="form-control" placeholder="Question" name="Question" type="text" autofocus required>
+                            </div>
+                                 <div class="form-group" >
+                                     <input class="form-control" placeholder="1st Option" name="Option1" type="text" required>
+                            </div>
+                             <div class="form-group" >
+                                 <input class="form-control" placeholder="2nd Option" name="Option2" type="text" required>
+                            </div>  <div class="form-group" >
+                                        <input class="form-control" placeholder="3rd Option" name="Option3" type="text" required>
+                            </div>  <div class="form-group" >
+                                        <input class="form-control" placeholder="4th Option" name="Option4" type="text" required>
+                            </div>  <div class="form-group" >
+                                        <input class="form-control" placeholder="Correct Option" name="CorrectAnswer" type="text" required>
+                            </div>
+                           
+                            <!-- Change this to a button or input when using this as a form -->
+                            <button type="submit" class="btn btn-lg btn-success btn-block">Create </button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br /><br /><br /><br />
+

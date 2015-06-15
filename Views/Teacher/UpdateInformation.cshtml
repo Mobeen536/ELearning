@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "UpdateInformation";
+}
+
+
+<div class="row">
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-4">
+        <h1>Update Information</h1>
+    </div>
+</div>
+<br /><br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Please Fill Required Fields</h3>
+                </div>
+                <div class="panel-body">
+                    <form role="form" action="update">
+                        <fieldset>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="New Name " name="Name" type="text" required>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="New E-mail" name="Email" type="email" required>
+                            </div>
+               
+                            <div class="form-group">
+                                <input class="form-control" placeholder="New password" name="Password" type="password" required>
+                            </div>
+
+
+                            <!-- Change this to a button or input when using this as a form -->
+                            <button class="btn btn-lg btn-success btn-block">Update</button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br/><br /><br /><br />

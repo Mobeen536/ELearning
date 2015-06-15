@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "EdiitSyudent";
+}
+@model MvcApplication3.Models.User
+<!DOCTYPE html>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-6">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Details</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-6">
+                            <div>
+                                @using (Html.BeginForm("Edit", "Teacher", FormMethod.Post))
+                                {
+                                    @Html.HiddenFor(m => m.Id)
+                                    <br />
+                                    @Html.LabelFor(m => m.Name)
+                                    <br />
+                                    @Html.EditorFor(m => m.Name)
+                                    <br />
+                                    @Html.LabelFor(m => m.Email)
+                                    <br />
+                                    @Html.EditorFor(m => m.Email)
+                                    <br />
+                                    @Html.LabelFor(m => m.Password)
+                                    <br />
+                                    @Html.EditorFor(m => m.Password)
+                                    <br />
+                                    <button type="submit" class="btn btn-success">Save</button>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+

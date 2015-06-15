@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Quiz";
+}
+
+@using MvcApplication3.Models
+<div class="row">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-4">
+        <h2>Quiz Name:@Model.QuizName</h2> 
+    </div>
+    <div class="col-sm-2">
+    </div>
+    @{Session["QuizName"]=Model.QuizName;}
+    <div class="col-sm-4">
+        <h2>Total Questions:@Model.TQ</h2> 
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-5">
+    </div>
+    <div class="col-sm-5">
+        <h3>Question No:@Model.QNo</h3>
+    </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-body">
+                        <form role="form" action="Quiz">
+                            <fieldset>
+                                <input name="QuizName" value="@Model.QuizName" hidden/>
+                                <div class="form-group">
+                                    <input class="form-control" value="@Model.Question " name="Question" type="text" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" value="@Model.Option1" name="Option1" type="text" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" value="@Model.Option2" name="Option2" type="text" disabled>
+                                </div>  <div class="form-group">
+                                    <input class="form-control" value="@Model.Option3" name="Option3" type="text" disabled>
+                                </div>  <div class="form-group">
+                                    <input class="form-control" value="@Model.Option4 " name="Option4" type="text" disabled>
+                                </div>  <div class="form-group">
+                                            <input class="form-control" placeholder="Correct Option i.e a,b,c,d only" name="CorrectAnswer" type="text" required autofocus>
+                                </div>
+
+                                <!-- Change this to a button or input when using this as a form -->
+                                <button type="submit" class="btn btn-lg btn-success btn-block">Create </button>
+                            </fieldset>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br /><br /><br /><br />

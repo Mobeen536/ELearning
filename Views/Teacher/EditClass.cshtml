@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "EditClass";
+}
+
+@model MvcApplication3.Models.Class
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-6">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Details</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-6">
+                            <div>
+                                @using (Html.BeginForm("EditClas", "Teacher", FormMethod.Post))
+                                {
+                                    @Html.HiddenFor(m => m.Id)
+                                     @Html.HiddenFor(m => m.Tid)
+                                    <br />
+                                    @Html.LabelFor(m => m.UniveristyName)
+                                    <br />
+                                    @Html.EditorFor(m => m.UniveristyName)
+                                    <br />
+                                    @Html.LabelFor(m => m.ClassName)
+                                    <br />
+                                    @Html.EditorFor(m => m.ClassName)
+                                    <br />
+                                    @Html.LabelFor(m => m.ClassNumber)
+                                    <br />
+                                    @Html.EditorFor(m => m.ClassNumber)
+                                    <br />
+                                     @Html.LabelFor(m => m.EstClassEnrolment)
+                                    <br />
+                                    @Html.EditorFor(m => m.EstClassEnrolment)
+                                    <br />
+                                    <button type="submit" class="btn btn-success">Save</button>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

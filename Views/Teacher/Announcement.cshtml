@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "AddProblem";
+}
+@using MvcApplication3.Models
+<div class="row">
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-4">
+        <h1>Announcement</h1>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Please Fill Required Fields</h3>
+                </div>
+                <div class="panel-body">
+                    <form id="Announce" role="form" action="/Teacher/announce" method="post" enctype="multipart/form-data">
+                        <fieldset>
+                            <select class="form-control" name="ClassName" form="Announce">
+                                @foreach (Class s in Model)
+                                {
+
+                                    <option>@s.ClassName</option>
+
+                                }
+                            </select>
+                            <input name="Type" value="Announcement" hidden />
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Topic" name="Topic" type="text" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea name="Announce" rows="10" cols="30" placeholder="Enter description required"></textarea>
+                            </div>
+                            <div class="form-group">
+                                Upload Image: <input type="file" name="a1" />
+
+                            </div>
+
+                            <!-- Change this to a button or input when using this as a form -->
+                            <button type="submit" class="btn btn-lg btn-success btn-block">Submit</button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

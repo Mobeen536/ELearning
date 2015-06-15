@@ -1,0 +1,68 @@
+﻿@model MvcApplication3.Models.Announcement
+
+@{
+    ViewBag.Title = "LatestPost";
+}
+
+
+@using MvcApplication3.Models;
+
+<div class="container">
+
+
+    <div class="row">
+        <div class=" col-md-3">
+        </div>
+        <div class="col-md-6">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <a class="close" href="@("../Teacher/DeletePost?id=" + @Model.Id)"><span aria-hidden="true">&times;</span></a>
+                    <h2 class="panel-title"><strong>@Model.ClassName</strong></h2>
+                </div>
+                <div class="panel-body">
+                    <div>
+
+                        <h2><strong>@Model.Name</strong></h2>
+
+                        <h5>&nbsp;@Model.Date</h5>
+
+
+                        <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>@Model.Topic</u></h4>
+                        <p>@Model.Announce</p>
+                        <br /><br /><br />
+                        @if (Model.Type.Equals("Announcement"))
+                        {
+                            String sorce = "../images/TeacherImages/" + Model.Id + ".jpg";
+                            <img src="@sorce" style="width:500px;height:380px" />
+                        }
+                        <br /><br />
+                        <form action="AnnouncementtoComment" method="post">
+                            <input name="AId" value="@Model.Id" hidden />
+                            <input name="CId" value="@Model.CId" hidden />
+                            <input name="Date" value="@DateTime.Now.ToString()" hidden />
+
+                            <div class="form-group">
+                                <textarea name="Coment" rows="3" cols="71" placeholder="Leave a Comment"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-sm btn-success">Comment</button>
+                        </form>
+                        @{
+                            var list = Model.Comments.OrderByDescending(x => x.Id);
+                        }
+
+                        @foreach (Comment c in list)
+                        {
+                            <a class="close" href="@("../Teacher/DeleteComment?id=" + @c.Id)"><span aria-hidden="true">&times;</span></a>
+                            <h3 style="color:#000000">&nbsp;&nbsp;@c.Name <sub style="font-size:11px; color:rgb(66, 84, 171)"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@c.Date</sub> </h3>
+                            <p>&nbsp; &nbsp;&nbsp;&nbsp;@c.Coment</p>
+
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

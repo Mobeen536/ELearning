@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Joining Univeristy";
+}
+@using MvcApplication3.Models
+<div class="row">
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-4">
+        <h1>Join The Univeristy</h1>
+    </div>
+    </div>
+<br /><br />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Select univeristy</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form id="Announce" role="form" action="JoinClass1" method="get" enctype="multipart/form-data">
+                            <fieldset>
+                                <select class="form-control" name="type" form="Announce">
+                                    @foreach (var s in Model)
+                                    {
+
+                                        <option>@s</option>
+
+                                    }
+                                </select>
+                                <!-- Change this to a button or input when using this as a form -->
+                                <button type="submit" class="btn btn-lg btn-success btn-block">Join</button>
+                            </fieldset>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<br /><br />
